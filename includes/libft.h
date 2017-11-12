@@ -53,5 +53,6 @@ int		ft_strequ(const char *s1, const char *s2);//ok
 int		ft_strnequ(char const *s1, char const *s2, size_t n);//ok
 int		ft_strcmp(char const *s1, char const *s2);//ok
 int		ft_memcmp(const void *s1, const void *s2, size_t n);//ok
+int		ft_atoi(const char *nptr);
 
 #endif
