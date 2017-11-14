@@ -1,27 +1,42 @@
-int		ft_atoi(const char *nptr)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tfavart <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/11/13 06:02:06 by tfavart           #+#    #+#             */
+/*   Updated: 2017/11/13 07:15:58 by tfavart          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+int						ft_atoi(const char *str)
 {
-	int result;
-	int count;
-	int neg;
+	unsigned long long	result;
+	int					i;
+	int					neg;
 
 	result = 0;
-	count = 0;
-	neg = 0;
-	while (nptr[count] == '\n' || nptr[count] == '\t' || nptr[count] == '\v' ||
-			nptr[count] == ' ' || nptr[count] == '\f' || nptr[count] == '\r')
-		count++;
-	if (nptr[count] == '-')
-		neg = 1;
-	if (nptr[count] == '-' || nptr[count] == '+')
-		count++;
-	while (nptr[count] >= '0' && nptr[count] <= '9')
+	i = 0;
+	neg = 1;
+	while (str[i] == '\n' || str[i] == '\t' || str[i] == '\v' ||
+			str[i] == ' ' || str[i] == '\f' || str[i] == '\r')
+		i++;
+	if (str[i] == '-')
+		neg = -1;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	while (str[i] >= '0' && str[i] <= '9')
 	{
 		result = result * 10;
-		result = result + nptr[count] - '0';
-		count++;
+		result = result + str[i] - '0';
+		i++;
 	}
-	if (neg == 1)
-		return (-result);
-	else
-		return (result);
+	if ((result > 9223372036854775807 || i > 19) && neg == -1)
+		return (0);
+	if ((result > 9223372036854775807 || i > 19) && neg == 1)
+		return (-1);
+	return (neg * (int)result);
 }

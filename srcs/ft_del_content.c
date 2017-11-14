@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_del_content.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tfavart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/09 16:56:51 by tfavart           #+#    #+#             */
-/*   Updated: 2017/11/13 07:36:20 by tfavart          ###   ########.fr       */
+/*   Created: 2017/11/14 06:50:32 by tfavart           #+#    #+#             */
+/*   Updated: 2017/11/14 07:01:49 by tfavart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+void		ft_del_content(void *content, size_t content_size)
 {
-	int	i;
-
-	i = 0;
-	if (s == NULL)
-		return ;
-	while (s[i])
-	{
-		f(i, &(s[i]));
-		i++;
-	}
+	free(content);
+	content_size = 0;
 }

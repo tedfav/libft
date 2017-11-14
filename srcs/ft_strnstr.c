@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tfavart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/10 16:09:25 by tfavart           #+#    #+#             */
-/*   Updated: 2017/11/13 06:13:42 by tfavart          ###   ########.fr       */
+/*   Created: 2017/11/13 07:18:15 by tfavart           #+#    #+#             */
+/*   Updated: 2017/11/13 07:42:59 by tfavart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strstr(const char *haystack, const char *needle)
+char			*ft_strnstr(const char *haystack, const char *needle,
+		size_t len)
 {
-	int		i;
-	int		j;
-	char	*str1;
-	char	*str2;
+	size_t		i;
+	size_t		j;
+	char		*str1;
+	char		*str2;
 
 	i = 0;
 	str1 = (char*)haystack;
@@ -27,12 +28,14 @@ char		*ft_strstr(const char *haystack, const char *needle)
 	while (str1[i] != '\0')
 	{
 		j = 0;
-		while (str1[i + j] == str2[j] || str2[j] == '\0')
+		while ((str1[i + j] == str2[j] || str2[j] == '\0') && j < len)
 		{
 			if (str2[j] == '\0')
 				return (&str1[i]);
 			j++;
 		}
+		if (str1[i + j] == str2[j] && j == len)
+			return (&str1[i]);
 		i++;
 	}
 	return (NULL);
