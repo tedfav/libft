@@ -58,6 +58,7 @@ SRCS= \
 	  ft_lstmap.c \
 	  ft_del_content.c \
 	  ft_strsplit.c \
+	  ft_itoa.c \
 
 OBJS= $(SRCS:.c=.o)
 CC= gcc -Wall -Wextra -Werror
