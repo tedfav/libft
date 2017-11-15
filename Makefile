@@ -70,7 +70,7 @@ SRCS= \
 OBJS= $(SRCS:.c=.o)
 CC= gcc -Wall -Wextra -Werror
 
-vpath %.c ./srcs
+vpath %.c ./
 
 all: $(NAME)
 
