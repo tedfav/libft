@@ -6,7 +6,7 @@
 /*   By: tfavart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 08:44:25 by tfavart           #+#    #+#             */
-/*   Updated: 2017/11/14 12:16:07 by tfavart          ###   ########.fr       */
+/*   Updated: 2017/11/15 10:21:43 by tfavart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,19 +76,19 @@ char			**ft_strsplit(char const *s, char c)
 	int			len;
 
 	i = 0;
-	if (!(tab = (char**)malloc(sizeof(*tab) * (ft_len_tab(str, c) + 1))))
+	len = (s) ? ft_len_tab((char*)s, c) : 0;
+	if (!(tab = (char**)malloc(sizeof(*tab) * (len + 1))))
 		return (NULL);
-	len = ft_len_tab(str, c);
 	tab[len] = 0;
 	while (i < len)
 	{
 		y = 0;
-		if (!(word = (char*)malloc(sizeof(*word) * (ft_len_word(str, c) + 1))))
+		if (!(word = (char*)malloc(sizeof(*word) * (ft_len_word((char*)s, c) + 1))))
 			return (ft_free_tab(tab));
-		while ((*str == c)
-			str++;
-		while (*str != c)
-			word[y++] = *(str++);
+		while (*s == c)
+			s++;
+		while (*s != c)
+			word[y++] = *(s++);
 		word[y] = '\0';
 		tab[i++] = word;
 	}

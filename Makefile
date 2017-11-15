@@ -59,6 +59,13 @@ SRCS= \
 	  ft_del_content.c \
 	  ft_strsplit.c \
 	  ft_itoa.c \
+	  ft_list_push_back.c \
+	  ft_list_push_front.c \
+	  ft_list_size.c \
+	  ft_create_elem.c \
+	  ft_str_is_numeric.c \
+	  ft_str_is_printable.c \
+	  ft_str_is_alpha.c \
 
 OBJS= $(SRCS:.c=.o)
 CC= gcc -Wall -Wextra -Werror
@@ -80,4 +87,5 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 
-re: fclean all
+re: fclean
+	$(MAKE) $(NAME)

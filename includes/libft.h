@@ -6,7 +6,7 @@
 /*   By: tfavart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/07 16:02:23 by tfavart           #+#    #+#             */
-/*   Updated: 2017/11/14 12:16:11 by tfavart          ###   ########.fr       */
+/*   Updated: 2017/11/15 10:45:25 by tfavart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,11 @@ typedef struct		s_list
 
 t_list				*ft_lstnew(void const *content, size_t content_size);
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+t_list				*ft_create_elem(void *data);
 size_t				ft_strlen(const char *s);
 size_t				ft_strlcat(char *dst, const char *src, size_t size);
+void				ft_list_push_back(t_list **begin_list, void *data);
+void				ft_list_push_front(t_list **begin_list, void *data);
 void				ft_lstdel(t_list **alst, void (*del)(void*, size_t));
 void				ft_del_content(void *content, size_t content_size);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
@@ -68,6 +71,7 @@ char				*ft_strrchr(const char *s, int c);
 char				*ft_strstr(const char *haystack, const char *needle);
 char				*ft_strnstr(const char *haystack, const char *needle,
 		size_t len);
+int					ft_list_size(t_list *begin_list);
 int					ft_strequ(const char *s1, const char *s2);
 int					ft_strnequ(char const *s1, char const *s2, size_t n);
 int					ft_strcmp(char const *s1, char const *s2);
@@ -79,5 +83,8 @@ int					ft_isdigit(int c);
 int					ft_isalnum(int c);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
+int					ft_str_is_alpha(char *str);
+int					ft_str_is_numeric(char *str);
+int					ft_str_is_printable(char *str);
 
 #endif
