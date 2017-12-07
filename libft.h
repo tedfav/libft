@@ -6,13 +6,14 @@
 /*   By: tfavart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/07 16:02:23 by tfavart           #+#    #+#             */
-/*   Updated: 2017/11/15 11:39:22 by tfavart          ###   ########.fr       */
+/*   Updated: 2017/12/06 15:44:52 by tfavart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <string.h>
+# include "get_next_line.h"
 
 typedef struct		s_list
 {
@@ -46,7 +47,7 @@ void				*ft_memset(void *b, int c, size_t len);
 void				ft_bzero(void *s, size_t n);
 void				*ft_memcpy(void *dst, const void *src, size_t n);
 void				*ft_memccpy(void *dst, const void *src, int c, size_t n);
-void				*ft_memmove(void *dst, const void *src, size_t n);
+void				*ft_memmove(void *dst, const void *src, size_t len);
 void				*ft_memchr(const void *s, int c, size_t n);
 void				ft_putendl(char const *s);
 void				ft_putchar_fd(char c, int fd);
@@ -72,9 +73,9 @@ char				*ft_strstr(const char *haystack, const char *needle);
 char				*ft_strnstr(const char *haystack, const char *needle,
 		size_t len);
 int					ft_list_size(t_list *begin_list);
-int					ft_strequ(const char *s1, const char *s2);
+int					ft_strequ(char const *s1, char const *s2);
 int					ft_strnequ(char const *s1, char const *s2, size_t n);
-int					ft_strcmp(char const *s1, char const *s2);
+int					ft_strcmp(const char *s1, const char *s2);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 int					ft_atoi(const char *str);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
@@ -88,5 +89,6 @@ int					ft_tolower(int c);
 int					ft_str_is_alpha(char *str);
 int					ft_str_is_numeric(char *str);
 int					ft_str_is_printable(char *str);
+int					ft_sqrt(int nb);
 
 #endif

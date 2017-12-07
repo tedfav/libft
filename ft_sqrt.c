@@ -1,19 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd.c                                        :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tfavart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/13 17:17:30 by tfavart           #+#    #+#             */
-/*   Updated: 2017/11/13 17:23:32 by tfavart          ###   ########.fr       */
+/*   Created: 2017/11/06 14:29:57 by tfavart           #+#    #+#             */
+/*   Updated: 2017/11/24 15:37:18 by tfavart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void		ft_lstadd(t_list **alst, t_list *new)
+int		ft_sqrt(int nb)
 {
-	new->next = *alst;
-	*alst = new;
+	int	res;
+	int	tmp;
+	int	cmp;
+
+	res = 0;
+	tmp = 1;
+	cmp = 1;
+	if (nb == 1)
+		return (1);
+	while (cmp < nb)
+	{
+		cmp = cmp + tmp;
+		res++;
+		tmp += 2;
+	}
+	return (res);
 }
